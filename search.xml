@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[welcome]]></title>
+    <title><![CDATA[hexo写博客 -- MarkDown语法]]></title>
+    <url>%2F2019%2F04%2F10%2Fhexo-markdown%2F</url>
+    <content type="text"><![CDATA[本文主要介绍其在写博客中的一些特点： 自动生成目录 代码块高亮 引用展示 表格插入 图片插入 强调显示 列表显示 自动URL链接 主要语法简述： 分段： 两个回车 换行： 两个空行 + 回车 标题： # ~ #######，#号的个数表示几级标题 强调： **文字** __文字__ _文字_ *文字* 引用： &gt; 后面紧跟个空格 表格： - 和 | 分割行和列， :控制对齐方式 代码块： 四个空格开头或者使用 ``` 代码内容 ``` 链接： [文字](链接地址) 图片： ![图片说明](图片地址)/code&gt;，地址可以是本地地址，也可以是网络地址 列表： *， +， -， 1.，选择其中一个，注意后面加空格]]></content>
+      <tags>
+        <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[模板]]></title>
     <url>%2F2019%2F04%2F08%2Fwelcome%2F</url>
-    <content type="text"><![CDATA[大家好，欢迎来到我的博客！router.get(&quot;/current&quot;, passport.authenticate(&apos;jwt&apos;, { session: false }), (req, res) =&gt; { res.json({ id: req.user.id, name: req.user.name, email: req.user.email }); }) 这是正文]]></content>
+    <content type="text"><![CDATA[大家好，欢迎来到我的博客！123function hellowWorld() &#123; console.log('Hello World!')&#125; 这是正文]]></content>
       <categories>
         <category>web前端</category>
       </categories>
@@ -11,10 +19,5 @@
         <tag>hexo</tag>
         <tag>demo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F04%2F08%2Fhello-world%2F</url>
-    <content type="text"></content>
   </entry>
 </search>
