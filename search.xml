@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTML5中的sessionStorage和Localstorage中的storage事件]]></title>
+    <url>%2F2019%2F04%2F13%2FstorageEvent%2F</url>
+    <content type="text"><![CDATA[storage事件当储存的数据发生变化时，会触发storage事件。123window.addEventListener("storage", event =&gt; &#123; console.log(event)&#125;) 回调函数接受一个event对象作为参数，该参数含有四个属性： oldValue：更新前的值。如果该键为新增加，则这个属性为null。 newValue：更新后的值。如果该键被删除，则这个属性为null。 url：原始触发storage事件的那个网页的网址。 key: 发生变化的属性的key值 值得特别注意的是，该事件不在导致数据变化的当前页面触发。如果浏览器同时打开一个域名下面的多个页面，当其中的一个页面改变sessionStorage或localStorage的数据时，其他所有页面的storage事件会被触发，而原始页面并不触发storage事件。可以通过这种机制，实现多个窗口之间的通信。IE浏览器除外，它会在所有页面触发storage事件。 代码：1234567891011121314151617181920212223242526272829&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="utf-8"&gt; &lt;title&gt;sessionStorage-localStorage 的storage事件&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;input type="text" placeholder="输入"&gt; &lt;button&gt;点我&lt;/button&gt; &lt;script&gt; (function(D) &#123; var val = D.getElementsByTagName("input")[0], btn = D.getElementsByTagName("button")[0]; btn.onclick = function() &#123; var value = val.value; if(!value) return; localStorage.setItem("key", val.value); &#125;; window.addEventListener("storage", function(e) &#123; console.log("e"); console.log(e); &#125;); &#125;)(document); &lt;/script&gt; &lt;/body&gt;&lt;/html&gt;]]></content>
+      <categories>
+        <category>HTML5</category>
+      </categories>
+      <tags>
+        <tag>HTML5</tag>
+        <tag>LocalStorage</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[初识node]]></title>
     <url>%2F2019%2F04%2F10%2Fnode%2F</url>
     <content type="text"><![CDATA[什么是Chrome V8引擎？ V8 是 Google 发布的开源 JavaScript 引擎，采用 C++ 编写，在 Google 的 Chrome 浏览器中被使用。V8 引擎可以独立运行，也可以用来嵌入到 C++ 应用程序中执行。 module（模块） 在 Node.js 模块系统中，每个文件都被视为一个独立的模块。 例如，假设有一个名为 foo.js 的文件： 123// foo.jsconst circle = require('./circle.js');console.log(`半径为4的圆的面积为$&#123;circle.area(4)&#125;`); 在第一行中， foo.js 加载了与 foo.js 在同一目录中的 circle.js 模块以下是 circle.js 的内容： 123// circle.jsconst &#123; PI &#125; = Mathexport.area = r =&gt; PI * r**2 circle.js 模块导出了 area() 函数。 通过在特殊的 exports 对象上指定额外的属性，可以将函数和对象添加到模块的根部。 events（事件触发器） 大多数 Node.js 核心 API 构建于惯用的异步事件驱动架构，其中某些类型的对象（又称触发器，Emitter）会触发命名事件来调用函数（又称监听器，Listener）。 所有能触发事件的对象都是 EventEmitter 类的实例。 这些对象有一个 eventEmitter.on() 函数，用于将一个或多个函数绑定到命名事件上。 事件的命名通常是驼峰式的字符串。 当 EventEmitter 对象触发一个事件时，所有绑定在该事件上的函数都会被同步地调用。 例子，一个简单的 EventEmitter 实例，绑定了一个监听器。 eventEmitter.on() 用于注册监听器， eventEmitter.emit() 用于触发事件。12345678910111213141516171819const event = require('events')class MyEmitter extends EventEmitter &#123;&#125;const myEmiiter = new MyEmitter()myEmiiter.on('EventName', msg =&gt; &#123; // console.log(msg) setImmediate(() =&gt; &#123; console.log(msg) &#125;)&#125;)myEmiiter.emit('someEvent', '触发事件')console.log(1)// 1// 触发事件// 由于异步的原因，先输出 1 然后再输出 “触发事件” fs（文件系统） 所有文件系统操作都具有同步和异步的形式。 文件读取同步读取1234const fs = require('fs')const readme = fs.readFileSync('readMe.txt', 'utf-8')console.log(readme) 异步读取1234567const fs = require('fs')fs.readFile('readMe.txt', 'utf8', (err, data) =&gt; &#123; if (err) throw err // 异步读取的同时，将读取到的内容写入temp.txt文件中 fs.writeFileSync('temp.txt', data)&#125;) 文件写入123const fs = require('fs')fs.writeFileSync('readme.txt', 'hello world') 文件删除123456const fs = require('fs')fs.unlink('readMe.txt', (err) =&gt; &#123; if (err) throw err; console.log('已成功删除 readMe.txt');&#125;); 创建文件夹1234567891011121314const fs = require('fs')fs.mkdir('utils', (err) =&gt; &#123; if (err) throw err // 先读取已有文件中的内容 fs.readFile('readme.txt', 'utf8', (err, data) =&gt; &#123; if (err) throw err; // 在新建的文件夹中新建content.txt文件，将读取的内容写入其中 fs.writeFile('./utils/content.txt', data, err =&gt; &#123; if (err) throw err; console.log('文件添加成功') &#125;) &#125;)&#125;) http(HTTP)Buffer在引入 TypedArray之前，JavaScript 语言没有用于读取或操作二进制数据流的机制。 Buffer 类是作为 Node.js API 的一部分引入的，用于在 TCP 流、文件系统操作、以及其他上下文中与八位字节流进行交互。 Stream流（stream）是 Node.js 中处理流式数据的抽象接口。 stream 模块用于构建实现了流接口的对象。 http 搭建简单的服务123456789101112const http = require('http')const server = http.createServer((req, res) =&gt; &#123; // console.log('客户端向服务端请求' + req.url) res.writeHead(200, 'Content-type: "text/plain') res.end("server is running...")&#125;)// 服务监听的端口和ip地址server.listen(8888, "127.0.0.1")console.log('server is running') 读写数据流1234567891011121314const fs = require('fs')const myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8')// 写入const myWriteStream = fs.createWriteStream(__dirname + '/writeme2.txt')myReadStream.pipe(myWriteStream)console.log(myReadStream)myReadStream.on('data', chunk =&gt; &#123; console.log('=============接受部分数据==========') myWriteStream.write(chunk)&#125;)]]></content>
@@ -20,18 +32,6 @@
       </categories>
       <tags>
         <tag>MarkDown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[模板]]></title>
-    <url>%2F2019%2F04%2F08%2Fwelcome%2F</url>
-    <content type="text"><![CDATA[大家好，欢迎来到我的博客！123function hellowWorld() &#123; console.log('Hello World!')&#125; 这是正文]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>demo</tag>
       </tags>
   </entry>
 </search>
