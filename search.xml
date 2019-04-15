@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[:checked伪类选择器的妙用]]></title>
+    <url>%2F2019%2F04%2F16%2Fcss-checked%2F</url>
+    <content type="text"><![CDATA[效果预览]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HTML5中的sessionStorage和Localstorage中的storage事件]]></title>
     <url>%2F2019%2F04%2F13%2FstorageEvent%2F</url>
     <content type="text"><![CDATA[storage事件当储存的数据发生变化时，会触发storage事件。123window.addEventListener("storage", event =&gt; &#123; console.log(event)&#125;) 回调函数接受一个event对象作为参数，该参数含有四个属性： oldValue：更新前的值。如果该键为新增加，则这个属性为null。 newValue：更新后的值。如果该键被删除，则这个属性为null。 url：原始触发storage事件的那个网页的网址。 key: 发生变化的属性的key值 值得特别注意的是，该事件不在导致数据变化的当前页面触发。如果浏览器同时打开一个域名下面的多个页面，当其中的一个页面改变sessionStorage或localStorage的数据时，其他所有页面的storage事件会被触发，而原始页面并不触发storage事件。可以通过这种机制，实现多个窗口之间的通信。IE浏览器除外，它会在所有页面触发storage事件。 代码：1234567891011121314151617181920212223242526272829&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="utf-8"&gt; &lt;title&gt;sessionStorage-localStorage 的storage事件&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;input type="text" placeholder="输入"&gt; &lt;button&gt;点我&lt;/button&gt; &lt;script&gt; (function(D) &#123; var val = D.getElementsByTagName("input")[0], btn = D.getElementsByTagName("button")[0]; btn.onclick = function() &#123; var value = val.value; if(!value) return; localStorage.setItem("key", val.value); &#125;; window.addEventListener("storage", function(e) &#123; console.log("e"); console.log(e); &#125;); &#125;)(document); &lt;/script&gt; &lt;/body&gt;&lt;/html&gt;]]></content>
