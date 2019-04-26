@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="DOM操作,">
 
 
 
@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="一位追梦人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="猿空间">
-<meta property="og:url" content="http://www.changxin00.cn/about/index.html">
+<meta name="description" content="网页的大小 document元素的clientHeight和clientWidth属性，就代表了网页的大小。clientHeight和clientWidth指元素的内容部分再加上padding的所占据的视觉面积，不包括border和滚动条占用的空间。1234567891011121314// 获取浏览器窗口的大小    function getViewport()&amp;#123;　　　　if (doc">
+<meta name="keywords" content="DOM操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JavaScript获取Dom元素的位置信息">
+<meta property="og:url" content="http://www.changxin00.cn/2019/04/21/DomPosition/index.html">
 <meta property="og:site_name" content="猿空间">
-<meta property="og:description" content="一位追梦人">
+<meta property="og:description" content="网页的大小 document元素的clientHeight和clientWidth属性，就代表了网页的大小。clientHeight和clientWidth指元素的内容部分再加上padding的所占据的视觉面积，不包括border和滚动条占用的空间。1234567891011121314// 获取浏览器窗口的大小    function getViewport()&amp;#123;　　　　if (doc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-08T09:56:54.242Z">
+<meta property="og:image" content="http://www.changxin00.cn/2019/04/21/DomPosition/demo1.gif">
+<meta property="og:image" content="http://www.changxin00.cn/2019/04/21/DomPosition/demo2.gif">
+<meta property="og:updated_time" content="2019-04-21T15:01:07.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="猿空间">
-<meta name="twitter:description" content="一位追梦人">
+<meta name="twitter:title" content="原生JavaScript获取Dom元素的位置信息">
+<meta name="twitter:description" content="网页的大小 document元素的clientHeight和clientWidth属性，就代表了网页的大小。clientHeight和clientWidth指元素的内容部分再加上padding的所占据的视觉面积，不包括border和滚动条占用的空间。1234567891011121314// 获取浏览器窗口的大小    function getViewport()&amp;#123;　　　　if (doc">
+<meta name="twitter:image" content="http://www.changxin00.cn/2019/04/21/DomPosition/demo1.gif">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://www.changxin00.cn/about/">
+  <link rel="canonical" href="http://www.changxin00.cn/2019/04/21/DomPosition/">
 
 
 
 
 
-  <title> | 猿空间</title>
+  <title>原生JavaScript获取Dom元素的位置信息 | 猿空间</title>
   
 
 
@@ -275,34 +279,247 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.changxin00.cn/2019/04/21/DomPosition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="guitao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://s.gravatar.com/avatar/ae2c3ca16d9bbe40a78b9ee96b341e53?s=80">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="猿空间">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p><a href="http://www.97guitao.cn" target="_blank" rel="noopener">一位追梦人</a></p>
-
+          <h1 class="post-title" itemprop="name headline">原生JavaScript获取Dom元素的位置信息</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-21T22:31:39+08:00">
+                2019-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  433 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <div class="note success"><h2 id="网页的大小"><a href="#网页的大小" class="headerlink" title="网页的大小"></a>网页的大小</h2></div>
+<p><code>document</code>元素的<code>clientHeight</code>和<code>clientWidth</code>属性，就代表了网页的大小。<br><code>clientHeight</code>和<code>clientWidth</code>指元素的内容部分再加上padding的所占据的视觉面积，不包括border和滚动条占用的空间。<br><img src="/2019/04/21/DomPosition/demo1.gif" alt="clientHeight和clientWidth属性"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取浏览器窗口的大小</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getViewport</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">if</span> (<span class="built_in">document</span>.compatMode == <span class="string">"BackCompat"</span>)&#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> &#123;</span><br><span class="line">　　　　　　　　width: <span class="built_in">document</span>.body.clientWidth,</span><br><span class="line">　　　　　　　　height: <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> &#123;</span><br><span class="line">　　　　　　　　width: <span class="built_in">document</span>.documentElement.clientWidth,</span><br><span class="line">　　　　　　　　height: <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>document.compatMode</code>用来判断浏览器是否是标准的兼容模式<br>这个函数必须在页面加载完成后才能运行，否则document对象还没生成，浏览器会报错</p>
+</blockquote>
+<h2 id="获取网页大小的另外一种方法"><a href="#获取网页大小的另外一种方法" class="headerlink" title="获取网页大小的另外一种方法"></a>获取网页大小的另外一种方法</h2><p>网页上的每个元素还有<code>scrollHeight</code>和<code>scrollWidth</code>属性，指包含<code>滚动条</code>在内的该元素的视觉面积。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类似于上面的getViewport方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getPagearea</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">if</span> (<span class="built_in">document</span>.compatMode == <span class="string">"BackCompat"</span>)&#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> &#123;</span><br><span class="line">　　　　　　　　width: <span class="built_in">document</span>.body.scrollWidth,</span><br><span class="line">　　　　　　　　height: <span class="built_in">document</span>.body.scrollHeight</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">　　　　　　<span class="keyword">return</span> &#123;</span><br><span class="line">　　　　　　　　width: <span class="built_in">document</span>.documentElement.scrollWidth,</span><br><span class="line">　　　　　　　　height: <span class="built_in">document</span>.documentElement.scrollHeight</span><br><span class="line">　　　　　　&#125;</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>如果网页内容能够在浏览器窗口中全部显示，不出现滚动条，那么网页的<code>clientWidth</code>和<code>scrollWidth</code>应该相等。但是实际上，不同浏览器有不同的处理，这两个值未必相等。所以，我们需要取它们之中较大的那个值</p>
+</blockquote>
+<h2 id="获取网页中某个元素的绝对位置"><a href="#获取网页中某个元素的绝对位置" class="headerlink" title="获取网页中某个元素的绝对位置"></a>获取网页中某个元素的绝对位置</h2><p>每个元素都有offsetTop和offsetLeft属性，表示该元素的左上角与父容器（offsetParent对象）左上角的距离。<br><img src="/2019/04/21/DomPosition/demo2.gif" alt="offsetTop和offsetLeft属性"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取绝对位置的横坐标和纵坐标。</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">　　　　<span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</span><br><span class="line">　　　　　　actualLeft += current.offsetLeft;</span><br><span class="line">　　　　　　current = current.offsetParent;</span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">return</span> actualLeft;</span><br><span class="line">　　&#125;</span><br><span class="line"></span><br><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">　　　　<span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">while</span> (current !== <span class="literal">null</span>)&#123;</span><br><span class="line">　　　　　　actualTop += current.offsetTop;</span><br><span class="line">　　　　　　current = current.offsetParent;</span><br><span class="line">　　　　&#125;</span><br><span class="line"></span><br><span class="line">　　　　<span class="keyword">return</span> actualTop;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+              -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+        </div>
+    
+</div>
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-pay.png" alt="guitao 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DOM操作/" rel="tag"># DOM操作</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/16/css-checked/" rel="next" title=":checked伪类选择器的妙用 -- 立体切换按钮">
+                <i class="fa fa-chevron-left"></i> :checked伪类选择器的妙用 -- 立体切换按钮
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -335,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点预览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -428,6 +654,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网页的大小"><span class="nav-number">1.</span> <span class="nav-text">网页的大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取网页大小的另外一种方法"><span class="nav-number">2.</span> <span class="nav-text">获取网页大小的另外一种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取网页中某个元素的绝对位置"><span class="nav-number">3.</span> <span class="nav-text">获取网页中某个元素的绝对位置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
